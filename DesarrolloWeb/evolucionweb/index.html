@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Evolución de la Web</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     .fade-in {
       opacity: 0;
-      transform: translateY(20px);
+      transform: translateY(30px);
       animation: fadeIn 1s ease-out forwards;
     }
 
-    .fade-delay-1 { animation-delay: 0.5s; }
-    .fade-delay-2 { animation-delay: 1s; }
-    .fade-delay-3 { animation-delay: 1.5s; }
-    .fade-delay-4 { animation-delay: 2s; }
+    .fade-delay-1 { animation-delay: 0.3s; }
+    .fade-delay-2 { animation-delay: 0.6s; }
+    .fade-delay-3 { animation-delay: 0.9s; }
+    .fade-delay-4 { animation-delay: 1.2s; }
 
     @keyframes fadeIn {
       to {
@@ -27,93 +27,108 @@
     .accordion-content {
       max-height: 0;
       overflow: hidden;
-      transition: max-height 0.5s ease;
+      transition: max-height 0.6s ease;
     }
 
     .accordion.open .accordion-content {
-      max-height: 400px;
+      max-height: 1000px;
     }
   </style>
 </head>
-<body class="bg-gray-100 font-sans text-gray-800">
+<body class="bg-gray-100 text-gray-800 font-sans">
 
   <!-- Encabezado -->
-  <header class="bg-blue-600 text-white p-6 text-center shadow-md">
-    <h1 class="text-3xl md:text-5xl font-bold mb-2 animate-pulse">La Evolución de la Web</h1>
-    <p class="text-lg md:text-xl">Desde sus orígenes hasta la Web 3.0</p>
+  <header class="bg-indigo-700 text-white p-8 text-center shadow-md">
+    <h1 class="text-4xl md:text-5xl font-bold mb-2 animate-pulse">La Evolución de la Web</h1>
+    <p class="text-lg md:text-xl">Comprende cómo ha evolucionado Internet desde sus inicios hasta la actualidad.</p>
   </header>
 
-  <!-- Línea del tiempo interactiva -->
-  <main class="max-w-4xl mx-auto p-6 space-y-8">
+  <!-- Contenido principal -->
+  <main class="max-w-5xl mx-auto px-6 py-10 space-y-10">
 
     <!-- Introducción -->
     <section class="bg-white p-6 rounded-xl shadow-lg fade-in fade-delay-1">
-      <h2 class="text-2xl font-semibold mb-4">¿Cómo ha cambiado la web?</h2>
-      <p class="text-gray-700 text-lg">
-        La web ha pasado de ser un espacio estático de información a un entorno inteligente, interactivo y descentralizado.
-        Explora su evolución cronológica a continuación:
+      <h2 class="text-2xl font-bold mb-4">¿Qué es la Web?</h2>
+      <p class="text-lg mb-4">
+        La Web, también conocida como World Wide Web, es un sistema de documentos enlazados y accesibles a través de Internet. Su evolución ha transformado profundamente la manera en que interactuamos, aprendemos, trabajamos y nos comunicamos.
+      </p>
+      <p class="text-lg">
+        A lo largo del tiempo, la Web ha pasado por diferentes etapas, cada una marcada por avances tecnológicos, cambios en el comportamiento del usuario y nuevas formas de consumir y generar contenido.
       </p>
     </section>
 
     <!-- Etapa Web 1.0 -->
     <section class="bg-white p-6 rounded-xl shadow-lg fade-in fade-delay-2 accordion" onclick="this.classList.toggle('open')">
       <h3 class="text-xl font-bold cursor-pointer flex justify-between items-center">
-        <span>🌐 Web 1.0 (1990 - 2000)</span>
-        <span class="transform transition-transform duration-300 accordion-arrow">&#9660;</span>
+        <span>📄 Web 1.0 (1990 - 2000)</span>
+        <span class="accordion-arrow transform transition-transform duration-300">&#9660;</span>
       </h3>
-      <div class="accordion-content mt-4 text-gray-700">
-        <p class="mb-2">La primera etapa de la web, también llamada web estática:</p>
-        <ul class="list-disc pl-5">
-          <li>Solo lectura</li>
-          <li>Contenido fijo y páginas HTML simples</li>
-          <li>Interacción limitada del usuario</li>
-          <li>No existían redes sociales</li>
+      <div class="accordion-content mt-4 text-gray-700 text-base leading-relaxed">
+        <p class="mb-2">La Web 1.0 fue la primera etapa del desarrollo de la Web y se caracterizaba por:</p>
+        <ul class="list-disc pl-6 mb-4">
+          <li>Sitios estáticos construidos en HTML puro.</li>
+          <li>Lectura pasiva de información sin posibilidad de interacción.</li>
+          <li>Sin bases de datos conectadas ni formularios interactivos.</li>
+          <li>Diseños simples y navegación básica.</li>
         </ul>
+        <p>Era una web informativa, en la que los usuarios solo podían consumir contenido. Las páginas eran mantenidas por empresas o instituciones y no se actualizaban con frecuencia.</p>
       </div>
     </section>
 
     <!-- Etapa Web 2.0 -->
     <section class="bg-white p-6 rounded-xl shadow-lg fade-in fade-delay-3 accordion" onclick="this.classList.toggle('open')">
       <h3 class="text-xl font-bold cursor-pointer flex justify-between items-center">
-        <span>💬 Web 2.0 (2000 - 2020)</span>
-        <span class="transform transition-transform duration-300 accordion-arrow">&#9660;</span>
+        <span>💡 Web 2.0 (2000 - 2020)</span>
+        <span class="accordion-arrow transform transition-transform duration-300">&#9660;</span>
       </h3>
-      <div class="accordion-content mt-4 text-gray-700">
-        <p class="mb-2">Etapa de interacción social y contenido generado por el usuario:</p>
-        <ul class="list-disc pl-5">
-          <li>Lectura y escritura</li>
-          <li>Redes sociales y blogs</li>
-          <li>Aplicaciones web dinámicas</li>
-          <li>Centralización de plataformas (Google, Facebook)</li>
+      <div class="accordion-content mt-4 text-gray-700 text-base leading-relaxed">
+        <p class="mb-2">La Web 2.0 introdujo la interacción social y el contenido generado por el usuario:</p>
+        <ul class="list-disc pl-6 mb-4">
+          <li>Aplicaciones web dinámicas y colaborativas.</li>
+          <li>Redes sociales, blogs, wikis y foros.</li>
+          <li>Uso intensivo de tecnologías como JavaScript, AJAX y APIs.</li>
+          <li>Interfaces más atractivas y experiencia de usuario mejorada.</li>
         </ul>
+        <p>
+          La Web 2.0 transformó a los usuarios en creadores de contenido. Surgieron plataformas como Facebook, YouTube, Twitter y Wikipedia. Las empresas comenzaron a personalizar servicios en función del comportamiento del usuario, lo cual dio lugar a debates sobre privacidad y uso de datos.
+        </p>
       </div>
     </section>
 
     <!-- Etapa Web 3.0 -->
     <section class="bg-white p-6 rounded-xl shadow-lg fade-in fade-delay-4 accordion" onclick="this.classList.toggle('open')">
       <h3 class="text-xl font-bold cursor-pointer flex justify-between items-center">
-        <span>🤖 Web 3.0 (2020 - Presente)</span>
-        <span class="transform transition-transform duration-300 accordion-arrow">&#9660;</span>
+        <span>🌐 Web 3.0 (2020 - Actualidad)</span>
+        <span class="accordion-arrow transform transition-transform duration-300">&#9660;</span>
       </h3>
-      <div class="accordion-content mt-4 text-gray-700">
-        <p class="mb-2">La web semántica, inteligente y descentralizada:</p>
-        <ul class="list-disc pl-5">
-          <li>Datos conectados y comprensión contextual</li>
-          <li>Inteligencia Artificial y blockchain</li>
-          <li>Control de datos por los usuarios</li>
-          <li>Metaverso y experiencias inmersivas</li>
+      <div class="accordion-content mt-4 text-gray-700 text-base leading-relaxed">
+        <p class="mb-2">La Web 3.0 propone una red más inteligente, descentralizada y personalizada:</p>
+        <ul class="list-disc pl-6 mb-4">
+          <li>Uso de tecnologías como blockchain para descentralizar datos.</li>
+          <li>Aplicaciones distribuidas (DApps).</li>
+          <li>Inteligencia Artificial y algoritmos semánticos.</li>
+          <li>Identidades digitales soberanas y economía de tokens.</li>
         </ul>
+        <p>
+          En esta etapa, el usuario retoma el control sobre sus datos y se fomenta la transparencia. La Web se vuelve capaz de entender el significado del contenido, y los dispositivos se comunican entre sí gracias a tecnologías como el Internet de las Cosas (IoT). Además, surgen conceptos como el metaverso y la interoperabilidad entre plataformas.
+        </p>
       </div>
     </section>
 
-    <!-- Interacción final -->
-    <section class="bg-blue-100 p-6 rounded-xl shadow-md text-center fade-in fade-delay-4">
-      <h4 class="text-xl font-semibold mb-2">¿Cuál crees que será la próxima etapa?</h4>
-      <p class="mb-4">Imagina una Web 4.0... ¿Será más humana, más inmersiva o más consciente?</p>
-      <button class="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition">
-        Compartir tu idea
-      </button>
+    <!-- Futuro de la Web -->
+    <section class="bg-white p-6 rounded-xl shadow-lg fade-in fade-delay-4">
+      <h3 class="text-xl font-bold mb-4">🔮 ¿Qué podríamos esperar en el futuro?</h3>
+      <p class="mb-4">
+        La próxima generación podría estar orientada a una Web más inmersiva (Web 4.0), centrada en la inteligencia artificial emocional, interfaces cerebro-computadora, y experiencias completamente sensoriales. También podrían surgir ecosistemas completamente autónomos que aprendan y se adapten al usuario en tiempo real.
+      </p>
+      <ul class="list-disc pl-6 mb-2">
+        <li>Entornos inmersivos en 3D con realidad aumentada y virtual.</li>
+        <li>Interfaces conversacionales naturales basadas en IA.</li>
+        <li>Economías digitales completamente integradas.</li>
+        <li>Hiperpersonalización contextual y ética digital avanzada.</li>
+      </ul>
     </section>
+
   </main>
 
   <!-- Script para flechas -->
@@ -129,6 +144,5 @@
       });
     });
   </script>
-
 </body>
 </html>
