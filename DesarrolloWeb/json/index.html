@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>¿Qué es JSON?</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .fade-in {
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    .pulse {
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800 p-4 md:p-10">
+
+  <!-- Título -->
+  <header class="text-center mb-10">
+    <h1 class="text-4xl md:text-6xl font-extrabold text-blue-700 fade-in">¿Qué es JSON?</h1>
+    <p class="text-lg mt-4 max-w-2xl mx-auto text-gray-600">Explora la estructura, utilidad y sintaxis de JSON con ejemplos prácticos e interacciones.</p>
+  </header>
+
+  <!-- Sección 1: Introducción -->
+  <section class="bg-white rounded-2xl shadow-md p-6 mb-8 fade-in">
+    <h2 class="text-2xl font-bold text-blue-600 mb-3">📌 Significado de JSON</h2>
+    <p class="text-gray-700 leading-relaxed">
+      JSON significa <strong>JavaScript Object Notation</strong>. Es un formato ligero de intercambio de datos. Fácil de leer y escribir para los humanos, y fácil de analizar y generar por las máquinas.
+    </p>
+  </section>
+
+  <!-- Sección 2: Estructura básica -->
+  <section class="bg-white rounded-2xl shadow-md p-6 mb-8 fade-in">
+    <h2 class="text-2xl font-bold text-blue-600 mb-3">🔧 Estructura básica de JSON</h2>
+    <p class="mb-4 text-gray-700">Un archivo JSON contiene:</p>
+    <ul class="list-disc list-inside space-y-2 text-gray-700">
+      <li>Pares clave-valor</li>
+      <li>Listas (arreglos)</li>
+      <li>Objetos anidados</li>
+    </ul>
+
+    <div class="mt-6 bg-gray-100 rounded-xl p-4 text-sm font-mono overflow-auto">
+      <pre>{
+  "nombre": "Ana",
+  "edad": 25,
+  "habilidades": ["HTML", "CSS", "JavaScript"],
+  "activo": true
+}</pre>
+    </div>
+  </section>
+
+  <!-- Sección 3: Interacción -->
+  <section class="bg-white rounded-2xl shadow-md p-6 mb-8 fade-in">
+    <h2 class="text-2xl font-bold text-blue-600 mb-3">🧪 Prueba interactiva</h2>
+    <p class="mb-4 text-gray-700">Modifica los valores en el campo de abajo y haz clic en <strong>Validar</strong> para verificar si es un JSON válido.</p>
+
+    <textarea id="jsonInput" class="w-full h-40 p-3 border-2 border-gray-300 rounded-xl font-mono text-sm resize-none focus:outline-none focus:ring-2 focus:ring-blue-400 transition"></textarea>
+    
+    <div class="mt-4">
+      <button onclick="validarJSON()" class="bg-blue-600 text-white font-semibold px-6 py-2 rounded-xl hover:bg-blue-700 transition pulse">
+        Validar
+      </button>
+    </div>
+
+    <div id="resultado" class="mt-4 text-lg font-medium"></div>
+  </section>
+
+  <!-- Sección 4: Aplicaciones -->
+  <section class="bg-white rounded-2xl shadow-md p-6 mb-10 fade-in">
+    <h2 class="text-2xl font-bold text-blue-600 mb-3">🌍 ¿Dónde se usa JSON?</h2>
+    <ul class="list-disc list-inside space-y-2 text-gray-700">
+      <li>APIs RESTful</li>
+      <li>Almacenamiento de configuración</li>
+      <li>Intercambio de datos entre cliente y servidor</li>
+      <li>Persistencia en bases de datos NoSQL como MongoDB</li>
+    </ul>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center text-sm text-gray-500 mb-4">
+  </footer>
+
+  <script>
+    function validarJSON() {
+      const input = document.getElementById("jsonInput").value;
+      const resultado = document.getElementById("resultado");
+
+      try {
+        const obj = JSON.parse(input);
+        resultado.textContent = "✅ JSON válido";
+        resultado.className = "text-green-600";
+      } catch (e) {
+        resultado.textContent = "❌ JSON inválido: " + e.message;
+        resultado.className = "text-red-600";
+      }
+    }
+  </script>
+</body>
+</html>
