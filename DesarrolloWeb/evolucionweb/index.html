@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OVA: Evolución de la Web</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #f4f7fa;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 600px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .header {
+      background: #6fb1fc;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-size: 1.5rem;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+    }
+
+    .content {
+      padding: 30px 20px;
+      min-height: 250px;
+      transition: opacity 0.5s ease;
+    }
+
+    .step {
+      display: none;
+    }
+
+    .step.active {
+      display: block;
+    }
+
+    .navigation {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px;
+      background: #f0f0f0;
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #6fb1fc;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #519df4;
+    }
+
+    @media (max-width: 600px) {
+      .header {
+        font-size: 1.2rem;
+      }
+      .content {
+        padding: 20px 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">OVA: Evolución de la Web</div>
+    <div class="content">
+      <div class="step active" id="step-1">
+        <h2>Web 1.0</h2>
+        <p>
+          Es la primera etapa de la web. Se caracterizaba por páginas estáticas, sin interacción con el usuario. Los contenidos eran únicamente informativos, como una enciclopedia digital.
+        </p>
+      </div>
+      <div class="step" id="step-2">
+        <h2>Web 2.0</h2>
+        <p>
+          Introdujo la interacción del usuario con las páginas. Aparecen las redes sociales, blogs y plataformas colaborativas. El usuario ahora también crea contenido.
+        </p>
+      </div>
+      <div class="step" id="step-3">
+        <h2>Web 3.0</h2>
+        <p>
+          También conocida como la web semántica. La información se organiza de forma más inteligente gracias al uso de inteligencia artificial y tecnologías como blockchain.
+        </p>
+      </div>
+      <div class="step" id="step-4">
+        <h2>Web 4.0</h2>
+        <p>
+          Visión futura donde la web se vuelve ubicua, conectando todos los dispositivos inteligentes. Se caracteriza por experiencias inmersivas con realidad aumentada, IoT y asistentes virtuales.
+        </p>
+      </div>
+    </div>
+    <div class="navigation">
+      <button onclick="anteriorPaso()">Anterior</button>
+      <button onclick="siguientePaso()">Siguiente</button>
+    </div>
+  </div>
+
+  <script>
+    let pasoActual = 1;
+    const totalPasos = 4;
+
+    function mostrarPaso(paso) {
+      for (let i = 1; i <= totalPasos; i++) {
+        document.getElementById(`step-${i}`).classList.remove("active");
+      }
+      document.getElementById(`step-${paso}`).classList.add("active");
+    }
+
+    function siguientePaso() {
+      pasoActual = pasoActual < totalPasos ? pasoActual + 1 : 1;
+      mostrarPaso(pasoActual);
+    }
+
+    function anteriorPaso() {
+      pasoActual = pasoActual > 1 ? pasoActual - 1 : totalPasos;
+      mostrarPaso(pasoActual);
+    }
+  </script>
+</body>
+</html>
