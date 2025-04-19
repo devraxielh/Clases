@@ -1,106 +1,134 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>OVA: Evolución de la Web</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Evolución de la Web</title>
   <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-50 text-gray-800 font-sans">
+  <style>
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 1s ease-out forwards;
+    }
 
-  <!-- Header -->
-  <header class="bg-blue-800 text-white py-6 shadow-md">
-    <div class="max-w-6xl mx-auto px-4 text-center">
-      <h1 class="text-3xl md:text-4xl font-bold">Objeto Virtual de Aprendizaje</h1>
-      <p class="mt-2 text-lg md:text-xl">La evolución de la Web: de la Web 1.0 a la Web 4.0</p>
-    </div>
+    .fade-delay-1 { animation-delay: 0.5s; }
+    .fade-delay-2 { animation-delay: 1s; }
+    .fade-delay-3 { animation-delay: 1.5s; }
+    .fade-delay-4 { animation-delay: 2s; }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease;
+    }
+
+    .accordion.open .accordion-content {
+      max-height: 400px;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 font-sans text-gray-800">
+
+  <!-- Encabezado -->
+  <header class="bg-blue-600 text-white p-6 text-center shadow-md">
+    <h1 class="text-3xl md:text-5xl font-bold mb-2 animate-pulse">La Evolución de la Web</h1>
+    <p class="text-lg md:text-xl">Desde sus orígenes hasta la Web 3.0</p>
   </header>
 
-  <!-- Intro Section -->
-  <section class="max-w-5xl mx-auto px-4 py-8">
-    <h2 class="text-2xl font-bold mb-4 text-blue-700">¿Qué es la Web?</h2>
-    <p class="mb-4 text-justify">
-      La Web, también conocida como World Wide Web, ha cambiado radicalmente desde su creación. Ha evolucionado desde simples páginas estáticas hasta sistemas inteligentes e interactivos que usamos a diario. Este OVA te permitirá conocer las distintas fases de esta evolución.
-    </p>
-    <p class="text-justify">Haz clic en cada etapa para explorar su contenido:</p>
-  </section>
+  <!-- Línea del tiempo interactiva -->
+  <main class="max-w-4xl mx-auto p-6 space-y-8">
 
-  <!-- Etapas -->
-  <section class="max-w-6xl mx-auto px-4 space-y-6">
+    <!-- Introducción -->
+    <section class="bg-white p-6 rounded-xl shadow-lg fade-in fade-delay-1">
+      <h2 class="text-2xl font-semibold mb-4">¿Cómo ha cambiado la web?</h2>
+      <p class="text-gray-700 text-lg">
+        La web ha pasado de ser un espacio estático de información a un entorno inteligente, interactivo y descentralizado.
+        Explora su evolución cronológica a continuación:
+      </p>
+    </section>
 
-    <!-- Web 1.0 -->
-    <details class="bg-white rounded-lg shadow p-4 group">
-      <summary class="cursor-pointer text-xl font-semibold text-blue-600">
-        🌐 Web 1.0: La Web Estática (1990 - 2000)
-      </summary>
-      <div class="mt-3 text-gray-700 leading-relaxed">
-        <p>La Web 1.0 fue la primera versión de la Web. Estaba compuesta por páginas HTML estáticas conectadas mediante hipervínculos. No había interacción con el usuario.</p>
-        <ul class="list-disc ml-6 mt-3">
-          <li>Solo lectura.</li>
-          <li>Diseños simples y uso de tablas.</li>
-          <li>No había bases de datos conectadas.</li>
+    <!-- Etapa Web 1.0 -->
+    <section class="bg-white p-6 rounded-xl shadow-lg fade-in fade-delay-2 accordion" onclick="this.classList.toggle('open')">
+      <h3 class="text-xl font-bold cursor-pointer flex justify-between items-center">
+        <span>🌐 Web 1.0 (1990 - 2000)</span>
+        <span class="transform transition-transform duration-300 accordion-arrow">&#9660;</span>
+      </h3>
+      <div class="accordion-content mt-4 text-gray-700">
+        <p class="mb-2">La primera etapa de la web, también llamada web estática:</p>
+        <ul class="list-disc pl-5">
+          <li>Solo lectura</li>
+          <li>Contenido fijo y páginas HTML simples</li>
+          <li>Interacción limitada del usuario</li>
+          <li>No existían redes sociales</li>
         </ul>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/NCSA_Mosaic_Browser_Screenshot.png/800px-NCSA_Mosaic_Browser_Screenshot.png" alt="Navegador Web 1.0" class="mt-4 rounded shadow w-full max-w-md mx-auto">
       </div>
-    </details>
+    </section>
 
-    <!-- Web 2.0 -->
-    <details class="bg-white rounded-lg shadow p-4 group">
-      <summary class="cursor-pointer text-xl font-semibold text-green-600">
-        🌍 Web 2.0: Interacción Social (2000 - 2010)
-      </summary>
-      <div class="mt-3 text-gray-700 leading-relaxed">
-        <p>Con la Web 2.0 nació la interactividad. Las personas ya no eran solo lectoras, también producían contenido.</p>
-        <ul class="list-disc ml-6 mt-3">
-          <li>Redes sociales, blogs, wikis.</li>
-          <li>Diseño más dinámico con CSS y JavaScript.</li>
-          <li>Uso de AJAX y APIs para experiencias más fluidas.</li>
+    <!-- Etapa Web 2.0 -->
+    <section class="bg-white p-6 rounded-xl shadow-lg fade-in fade-delay-3 accordion" onclick="this.classList.toggle('open')">
+      <h3 class="text-xl font-bold cursor-pointer flex justify-between items-center">
+        <span>💬 Web 2.0 (2000 - 2020)</span>
+        <span class="transform transition-transform duration-300 accordion-arrow">&#9660;</span>
+      </h3>
+      <div class="accordion-content mt-4 text-gray-700">
+        <p class="mb-2">Etapa de interacción social y contenido generado por el usuario:</p>
+        <ul class="list-disc pl-5">
+          <li>Lectura y escritura</li>
+          <li>Redes sociales y blogs</li>
+          <li>Aplicaciones web dinámicas</li>
+          <li>Centralización de plataformas (Google, Facebook)</li>
         </ul>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Web_2.0_Map.svg/800px-Web_2.0_Map.svg.png" alt="Mapa Web 2.0" class="mt-4 rounded shadow w-full max-w-md mx-auto">
       </div>
-    </details>
+    </section>
 
-    <!-- Web 3.0 -->
-    <details class="bg-white rounded-lg shadow p-4 group">
-      <summary class="cursor-pointer text-xl font-semibold text-purple-600">
-        🧠 Web 3.0: Web Semántica e Inteligente (2010 - presente)
-      </summary>
-      <div class="mt-3 text-gray-700 leading-relaxed">
-        <p>La Web 3.0 incorpora inteligencia artificial y análisis semántico para entender mejor la intención del usuario.</p>
-        <ul class="list-disc ml-6 mt-3">
-          <li>Uso de datos estructurados.</li>
-          <li>Asistentes virtuales, búsquedas inteligentes.</li>
-          <li>Aplicaciones descentralizadas (Blockchain).</li>
+    <!-- Etapa Web 3.0 -->
+    <section class="bg-white p-6 rounded-xl shadow-lg fade-in fade-delay-4 accordion" onclick="this.classList.toggle('open')">
+      <h3 class="text-xl font-bold cursor-pointer flex justify-between items-center">
+        <span>🤖 Web 3.0 (2020 - Presente)</span>
+        <span class="transform transition-transform duration-300 accordion-arrow">&#9660;</span>
+      </h3>
+      <div class="accordion-content mt-4 text-gray-700">
+        <p class="mb-2">La web semántica, inteligente y descentralizada:</p>
+        <ul class="list-disc pl-5">
+          <li>Datos conectados y comprensión contextual</li>
+          <li>Inteligencia Artificial y blockchain</li>
+          <li>Control de datos por los usuarios</li>
+          <li>Metaverso y experiencias inmersivas</li>
         </ul>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Web_3.0.svg/800px-Web_3.0.svg.png" alt="Representación Web 3.0" class="mt-4 rounded shadow w-full max-w-md mx-auto">
       </div>
-    </details>
+    </section>
 
-    <!-- Web 4.0 -->
-    <details class="bg-white rounded-lg shadow p-4 group">
-      <summary class="cursor-pointer text-xl font-semibold text-red-600">
-        🤖 Web 4.0: Web Ubicua e Inteligente (Presente - Futuro)
-      </summary>
-      <div class="mt-3 text-gray-700 leading-relaxed">
-        <p>La Web 4.0 representa la integración total entre la inteligencia artificial, los dispositivos y las personas.</p>
-        <ul class="list-disc ml-6 mt-3">
-          <li>Web sensible al contexto (IoT).</li>
-          <li>Interacción por voz, realidad aumentada.</li>
-          <li>Asistentes predictivos, conectividad total.</li>
-        </ul>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Internet_of_Things_World_Map.svg/800px-Internet_of_Things_World_Map.svg.png" alt="IoT Web 4.0" class="mt-4 rounded shadow w-full max-w-md mx-auto">
-      </div>
-    </details>
+    <!-- Interacción final -->
+    <section class="bg-blue-100 p-6 rounded-xl shadow-md text-center fade-in fade-delay-4">
+      <h4 class="text-xl font-semibold mb-2">¿Cuál crees que será la próxima etapa?</h4>
+      <p class="mb-4">Imagina una Web 4.0... ¿Será más humana, más inmersiva o más consciente?</p>
+      <button class="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition">
+        Compartir tu idea
+      </button>
+    </section>
+  </main>
 
-  </section>
-
-  <!-- Footer -->
-  <footer class="bg-blue-900 text-white mt-12 py-6">
-    <div class="max-w-6xl mx-auto px-4 text-center">
-      <p>&copy; 2025 OVA Interactivo | Educación Digital con HTML5 y Tailwind CSS</p>
-      <p class="text-sm mt-2">Diseñado para adaptarse a todos los dispositivos.</p>
-    </div>
-  </footer>
+  <!-- Script para flechas -->
+  <script>
+    document.querySelectorAll('.accordion').forEach((el) => {
+      el.addEventListener('click', () => {
+        const arrow = el.querySelector('.accordion-arrow');
+        if (el.classList.contains('open')) {
+          arrow.style.transform = 'rotate(180deg)';
+        } else {
+          arrow.style.transform = 'rotate(0deg)';
+        }
+      });
+    });
+  </script>
 
 </body>
 </html>
